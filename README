@@ -1,0 +1,9 @@
+With vdump you can dump all variables in a running PHP process.
+
+It has to be compiled in, and then provides a function vdump_dump($fn) which writes all variables to file $fn.
+
+You can also use GDB to dump a remote process:
+$ gdb -p $PID
+> set unwindonsignal on
+> call vdump_dump_no_tsrm("/tmp/vdump-$PID");
+> detach

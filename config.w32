@@ -1,0 +1,8 @@
+// $ Id: $
+// vim:ft=javascript
+
+ARG_ENABLE('vdump' , 'An extension which provides process state dumping', 'no');
+if (PHP_VDUMP == "yes") {
+  EXTENSION("vdump", "vdump.c");
+  AC_DEFINE("HAVE_VDUMP", 1, "vdump support");
+}
