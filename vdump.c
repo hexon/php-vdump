@@ -66,8 +66,6 @@ PHP_MINFO_FUNCTION(vdump)
 	// php_info_print_table_row(2, "Released", "2011-06-24");
 	php_info_print_table_row(2, "SVN Revision", "$Id: $");
 	php_info_print_table_end();
-	/* add your stuff here */
-
 }
 /* }}} */
 
@@ -157,8 +155,6 @@ vdump_add_zval(struct vdump *vdi, char *key, zval *zv TSRMLS_DC) {
 		}
 
 		assert(arkey != 0);
-
-		// printf("zval(%p) is referencing with key %lu\n", zv, arkey);
 
 		if(zend_hash_index_find(Z_ARRVAL(vdi->references), arkey, (void **)&zkeyp) == SUCCESS) {
 			zkey = *zkeyp;
