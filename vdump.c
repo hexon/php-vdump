@@ -65,7 +65,6 @@ PHP_MINFO_FUNCTION(vdump)
 	php_info_print_table_row(2, "Version",PHP_VDUMP_VERSION " (alpha)");
 	// php_info_print_table_row(2, "Released", "2011-06-24");
 	php_info_print_table_row(2, "SVN Revision", "$Id: $");
-	php_info_print_table_row(2, "Authors", "Jille Timmermans 'jille@hexon.cx' (lead)\n");
 	php_info_print_table_end();
 	/* add your stuff here */
 
