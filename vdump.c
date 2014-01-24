@@ -294,14 +294,14 @@ vdump_dump(const char *outfile TSRMLS_DC) {
 			} else {
 				int i;
 				for (i = 0; i < ex->op_array->last_var; i++) {
-					if (ex->CVs[i]) {
+					if (*EX_CV_NUM(ex, i)) {
 						int escaped_key_len;
 						char *escaped_key = vdump_escape_string(ex->op_array->vars[i].name, ex->op_array->vars[i].name_len, &escaped_key_len TSRMLS_CC);
 
 						asprintf(&newkey, "$data['stack'][%d]['%.*s']", frame, escaped_key_len, escaped_key);
-						Z_ADDREF_PP(ex->CVs[i]);
-						vdump_add_zval(&vdi, newkey, *ex->CVs[i] TSRMLS_CC);
-						Z_DELREF_PP(ex->CVs[i]);
+						Z_ADDREF_PP(*EX_CV_NUM(ex, i));
+						vdump_add_zval(&vdi, newkey, **EX_CV_NUM(ex, i) TSRMLS_CC);
+						Z_DELREF_PP(*EX_CV_NUM(ex, i));
 
 						efree(escaped_key);
 					}
