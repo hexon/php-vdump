@@ -89,7 +89,7 @@ vdump_array_element_add(zval **zvp TSRMLS_DC, int num_args, va_list args, zend_h
 	char *newkey;
 
 	if(hash_key->nKeyLength == 0) {
-		asprintf(&newkey, "%s[%lu]", key, hash_key->h);
+		asprintf(&newkey, "%s[%ld]", key, hash_key->h);
 	} else {
 		int escaped_key_len;
 		char *escaped_key = vdump_escape_string(hash_key->arKey, hash_key->nKeyLength - 1, &escaped_key_len TSRMLS_CC);
@@ -114,7 +114,7 @@ vdump_object_property_add(zval **zvp TSRMLS_DC, int num_args, va_list args, zend
 	char *newkey;
 
 	if(hash_key->nKeyLength == 0) {
-		asprintf(&newkey, "%s[%lu]", key, hash_key->h);
+		asprintf(&newkey, "%s[%ld]", key, hash_key->h);
 	} else {
 		int escaped_key_len;
 		char *escaped_key;
